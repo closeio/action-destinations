@@ -14,7 +14,7 @@ describe('Close', () => {
 
       const settings = {
         api_key: 'api_keyid.keysecret',
-        contact_custom_field_id_for_user_id: 'cf_id'
+        contact_custom_field_id_for_user_id: 'cf_id1'
       }
       await expect(testDestination.testAuthentication(settings)).resolves.not.toThrowError()
     })
@@ -30,7 +30,7 @@ describe('Close', () => {
 
       const settings = {
         api_key: 'api_keyid.keysecret',
-        contact_custom_field_id_for_user_id: 'cf_id'
+        contact_custom_field_id_for_user_id: 'cf_id1'
       }
 
       await expect(testDestination.testAuthentication(settings)).rejects.toThrowError()

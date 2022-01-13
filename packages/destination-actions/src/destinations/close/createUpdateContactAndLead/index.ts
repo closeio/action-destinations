@@ -7,13 +7,13 @@ const action: ActionDefinition<Settings, Payload> = {
   description: '',
   defaultSubscription: 'type = "identify"',
   fields: {
-    external_cf_contact_id: {
-      label: 'Contact Id Custom Field',
-      description: 'Value to identify the contact. Custom Field id is defined in the main integration settings.',
+    lead_name: {
+      label: 'Lead Name',
+      description: '',
       type: 'string',
-      required: true,
+      required: false,
       default: {
-        '@path': '$.userId'
+        '@path': '$.traits.company.name'
       }
     },
     contact_name: {
@@ -22,7 +22,7 @@ const action: ActionDefinition<Settings, Payload> = {
       type: 'string',
       required: false,
       default: {
-        '@path': '$.name'
+        '@path': '$.traits.name'
       }
     },
     contact_email: {
@@ -31,7 +31,44 @@ const action: ActionDefinition<Settings, Payload> = {
       type: 'string',
       required: false,
       default: {
-        '@path': '$.email'
+        '@path': '$.traits.email'
+      }
+    },
+    contact_phone: {
+      label: 'Contact Phone',
+      description: '',
+      type: 'string',
+      required: false,
+      default: {
+        '@path': '$.traits.phone'
+      }
+    },
+    contact_url: {
+      label: 'Contact Url',
+      description: '',
+      type: 'string',
+      required: false,
+      default: {
+        '@path': '$.traits.website'
+      }
+    },
+    contact_title: {
+      label: 'Contact Title',
+      description: '',
+      type: 'string',
+      required: false,
+      default: {
+        '@path': '$.traits.title'
+      }
+    },
+    contact_external_id: {
+      label: 'Contact External Id',
+      description:
+        'Your id that identifies the Contact. Contact Custom Field Id must be defined in the global integration settings.',
+      type: 'string',
+      required: false,
+      default: {
+        '@path': '$.userId'
       }
     },
     contact_custom_fields: {
@@ -40,11 +77,12 @@ const action: ActionDefinition<Settings, Payload> = {
       type: 'object'
     }
   },
+
   perform: (request, data) => {
     const settings = {
       contact_custom_field_id_for_user_id: data.settings.contact_custom_field_id_for_user_id
     }
-    return request('https://services.close.com/webhooks/segment/create-update-contact-and-lead', {
+    return request('https://services.close.com/webhooks/segment/actions/create-update-contact-and-lead', {
       method: 'post',
       json: { action_payload: data.payload, settings }
     })
