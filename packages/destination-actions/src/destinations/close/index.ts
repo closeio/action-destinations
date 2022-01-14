@@ -25,7 +25,7 @@ const destination: DestinationDefinition<Settings> = {
           'Custom Field in Close first, and then the integration will use ' +
           'this field to store the User ID when creating new contacts, ' +
           'and/or will be used as a lookup key when updating existing ' +
-          'Contacts. If this field is not filled out, Identify will only ' +
+          'Contacts. If this field is not filled out, it will only ' +
           'lookup and de-dupe based on email.',
         type: 'string',
         default: '',
