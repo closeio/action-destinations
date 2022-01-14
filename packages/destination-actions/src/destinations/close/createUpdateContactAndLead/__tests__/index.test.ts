@@ -47,7 +47,7 @@ describe('Close.createUpdateContactAndLead', () => {
         phone: TEST_USER_1.phone,
         website: TEST_USER_1.website,
         title: TEST_USER_1.title,
-        business_plan: 'Enterprise'
+        business_plan: TEST_USER_1.business_plan
       }
     })
 

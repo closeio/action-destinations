@@ -17,6 +17,7 @@ describe('Close', () => {
         contact_custom_field_id_for_user_id: 'cf_id1'
       }
       await expect(testDestination.testAuthentication(settings)).resolves.not.toThrowError()
+      expect(nock.isDone()).toBe(true)
     })
 
     it('should not validate invalid api key', async () => {
@@ -34,6 +35,7 @@ describe('Close', () => {
       }
 
       await expect(testDestination.testAuthentication(settings)).rejects.toThrowError()
+      expect(nock.isDone()).toBe(true)
     })
   })
 })
