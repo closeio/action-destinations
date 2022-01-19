@@ -62,7 +62,7 @@ const action: ActionDefinition<Settings, Payload> = {
       }
     },
     contact_external_id: {
-      label: 'Contact Identifier',
+      label: 'Contact User ID',
       description:
         'Your ID that identifies the Contact. Contact Custom Field ID for User ID must be defined in the global integration settings.',
       type: 'string',
