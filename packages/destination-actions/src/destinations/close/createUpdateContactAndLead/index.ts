@@ -3,7 +3,7 @@ import type { Settings } from '../generated-types'
 import type { Payload } from './generated-types'
 
 const action: ActionDefinition<Settings, Payload> = {
-  title: 'Create Update Contact and Lead',
+  title: 'Create or Update Contact and Lead',
   description: '',
   defaultSubscription: 'type = "identify"',
   fields: {
@@ -44,7 +44,7 @@ const action: ActionDefinition<Settings, Payload> = {
       }
     },
     contact_url: {
-      label: 'Contact Url',
+      label: 'Contact URL',
       description: '',
       type: 'string',
       required: false,
@@ -62,9 +62,9 @@ const action: ActionDefinition<Settings, Payload> = {
       }
     },
     contact_external_id: {
-      label: 'Contact External Id',
+      label: 'Contact Identifier',
       description:
-        'Your id that identifies the Contact. Contact Custom Field Id must be defined in the global integration settings.',
+        'Your ID that identifies the Contact. Contact Custom Field ID for User ID must be defined in the global integration settings.',
       type: 'string',
       required: false,
       default: {
@@ -73,7 +73,7 @@ const action: ActionDefinition<Settings, Payload> = {
     },
     contact_custom_fields: {
       label: 'Contact Custom Fields',
-      description: 'Custom fields to set on the Contact. Key should be custom field id (`cf_xxxx`).',
+      description: 'Custom Fields to set on the Contact. Key should be Custom Field ID (`cf_xxxx`).',
       type: 'object'
     }
   },
@@ -82,7 +82,7 @@ const action: ActionDefinition<Settings, Payload> = {
     const settings = {
       contact_custom_field_id_for_user_id: data.settings.contact_custom_field_id_for_user_id
     }
-    return request('https://services.close.com/webhooks/segment/actions/create-update-contact-and-lead', {
+    return request('https://services.close.com/webhooks/segment/actions/create-update-contact-and-lead/', {
       method: 'post',
       json: { action_payload: data.payload, settings }
     })

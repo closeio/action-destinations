@@ -12,8 +12,8 @@ const destination: DestinationDefinition<Settings> = {
     scheme: 'basic',
     fields: {
       api_key: {
-        label: 'Api key',
-        description: 'Your Close api key.',
+        label: 'API key',
+        description: 'Your Close API key.',
         type: 'string',
         required: true
       },

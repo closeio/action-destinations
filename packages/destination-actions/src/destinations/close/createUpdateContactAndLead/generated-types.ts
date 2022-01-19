@@ -8,11 +8,11 @@ export interface Payload {
   contact_url?: string
   contact_title?: string
   /**
-   * Your id that identifies the Contact. Contact Custom Field Id must be defined in the global integration settings.
+   * Your ID that identifies the Contact. Contact Custom Field ID for User ID must be defined in the global integration settings.
    */
   contact_external_id?: string
   /**
-   * Custom fields to set on the Contact. Key should be custom field id (`cf_xxxx`).
+   * Custom Fields to set on the Contact. Key should be Custom Field ID (`cf_xxxx`).
    */
   contact_custom_fields?: {
     [k: string]: unknown

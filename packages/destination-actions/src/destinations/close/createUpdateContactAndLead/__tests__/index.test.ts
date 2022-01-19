@@ -21,7 +21,7 @@ const testDestination = createTestIntegration(Destination)
 describe('Close.createUpdateContactAndLead', () => {
   it('should call action with default mappings', async () => {
     nock('https://services.close.com/', { encodedQueryParams: true })
-      .post('/webhooks/segment/actions/create-update-contact-and-lead', {
+      .post('/webhooks/segment/actions/create-update-contact-and-lead/', {
         action_payload: {
           lead_name: TEST_USER_1.company_name,
           contact_name: TEST_USER_1.name,
@@ -61,7 +61,7 @@ describe('Close.createUpdateContactAndLead', () => {
 
   it('should call action with contact_custom_fields mappings', async () => {
     nock('https://services.close.com/', { encodedQueryParams: true })
-      .post('/webhooks/segment/actions/create-update-contact-and-lead', {
+      .post('/webhooks/segment/actions/create-update-contact-and-lead/', {
         action_payload: {
           contact_external_id: TEST_USER_1.id,
           contact_custom_fields: { cf_business_plan: 'Enterprise' }

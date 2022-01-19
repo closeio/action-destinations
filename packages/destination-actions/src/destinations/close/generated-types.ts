@@ -2,7 +2,7 @@
 
 export interface Settings {
   /**
-   * Your Close api key.
+   * Your Close API key.
    */
   api_key: string
   /**
